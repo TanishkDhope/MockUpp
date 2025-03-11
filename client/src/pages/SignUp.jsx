@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../Firebase/firebase";
+import { auth } from "../../Firebase/firebase";
 import { useNavigate } from "react-router-dom";
-import { getUserInfo } from "../hooks/getUserInfo";
-import { useAddInfo } from "../hooks/useAddInfo";
+import { getUserInfo } from "../../hooks/getUserInfo";
+import { useAddInfo } from "../../hooks/useAddInfo";
 
 
 const SignUp = () => {

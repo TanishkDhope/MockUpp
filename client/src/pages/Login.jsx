@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { auth, googleProvider } from "../Firebase/firebase";
+import { auth, googleProvider } from "../../Firebase/firebase";
 import { useNavigate } from "react-router-dom";
-import { getUserInfo } from "../hooks/getUserInfo";
+import { getUserInfo } from "../../hooks/getUserInfo";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });

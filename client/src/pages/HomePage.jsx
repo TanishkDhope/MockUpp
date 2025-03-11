@@ -7,6 +7,8 @@ import Footer from "@/components/footer";
 import HeroAnimation from "@/components/hero-animation";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Spline from "@splinetool/react-spline";
+import img1 from "../assets/home/img1.jpg";
 
 export default function HomePage() {
   const featuredRefs = useRef([]);
@@ -50,26 +52,27 @@ export default function HomePage() {
   const featuredProducts = [
     {
       id: 1,
-      name: "Razer Blade 15",
-      description:
-        "The world's smallest 15-inch gaming laptop. Featuring the latest 12th Gen Intel® Core™ processor and NVIDIA® GeForce RTX™ graphics for the ultimate gaming experience.",
-      image: "/placeholder.svg?height=400&width=600",
-      category: "Laptops",
-    },
-    {
-      id: 2,
       name: "Razer BlackShark V2 Pro",
       description:
         "Wireless esports headset with THX Spatial Audio, TriForce Titanium 50mm Drivers, and HyperClear Supercardioid Mic for competitive gaming.",
-      image: "/placeholder.svg?height=400&width=600",
+      sceneUrl: "https://prod.spline.design/sgQLSlV0PknXJ8ic/scene.splinecode",
       category: "Audio",
     },
+    {
+      id: 2,
+      name: "Razer Blade 15",
+      description:
+        "The world's smallest 15-inch gaming laptop. Featuring the latest 12th Gen Intel® Core™ processor and NVIDIA® GeForce RTX™ graphics for the ultimate gaming experience.",
+      sceneUrl: "https://prod.spline.design/EAX2xONSJXH7v2Mn/scene.splinecode",
+      category: "Laptops",
+    },
+    
     {
       id: 3,
       name: "Razer Huntsman V2",
       description:
         "Gaming keyboard with Razer™ Optical Switches, Doubleshot PBT keycaps, and Hybrid On-board Memory and Cloud Storage for the ultimate competitive advantage.",
-      image: "/placeholder.svg?height=400&width=600",
+      sceneUrl: "https://prod.spline.design/gm5JaLc5dzh1Kh04/scene.splinecode",
       category: "Keyboards",
     },
     {
@@ -77,7 +80,7 @@ export default function HomePage() {
       name: "Razer Viper Ultimate",
       description:
         "Wireless gaming mouse with Focus+ 20K DPI Optical Sensor, 74g lightweight design, and Razer™ HyperSpeed Wireless technology for competitive gaming.",
-      image: "/placeholder.svg?height=400&width=600",
+      sceneUrl: "https://prod.spline.design/od0NrETN7OYrWSlC/scene.splinecode",
       category: "Mice",
     },
   ];
@@ -123,21 +126,21 @@ export default function HomePage() {
                 ref={(el) => (featuredRefs.current[index] = el)}
                 className={`grid grid-cols-1 ${
                   index % 2 === 0 ? "md:grid-cols-[1fr_1.2fr]" : "md:grid-cols-[1.2fr_1fr] md:flex-row-reverse"
-                } gap-8 md:gap-16 items-center`}
+                } gap-8 md:gap-16 items-center h-96`}
               >
                 <div className={`${index % 2 === 0 ? "md:order-1" : "md:order-2"}`}>
-                  <div className="relative overflow-hidden rounded-lg group">
-                    <img
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.name}
-                      width={600}
-                      height={400}
-                      className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                  <div className="relative overflow-hidden rounded-lg group h-80">
+                    {/* Directly using the Spline component with increased height */}
+                    <Spline
+                      scene={product.sceneUrl}
+                      className="w-full h-[700px] transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                      <div className="p-6">
+                    <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                      <div className="p-6 pointer-events-auto">
                         <Link to="/products">
-                          <Button className="bg-green-600 hover:bg-green-700 text-white">View Details</Button>
+                          <Button className="bg-green-600 hover:bg-green-700 text-white">
+                            View Details
+                          </Button>
                         </Link>
                       </div>
                     </div>

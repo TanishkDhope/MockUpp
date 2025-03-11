@@ -28,21 +28,23 @@ export default function ProductCard({ product }) {
     >
       {/* Product Image */}
       <div className="relative aspect-[1] overflow-hidden cursor-pointer">
-        <img
-          src={product.image || "/placeholder.svg"}
-          alt={product.name}
-          className={cn(
-            "object-cover transition-transform duration-700",
-            isHovered ? "scale-110" : "scale-100"
-          )}
-          style={{
-            width: "100%",
-            height: "100%",
-            position: "absolute",
-            top: 0,
-            left: 0,
-          }}
-        />
+        <Link to="/myScene">
+          <img
+            src={product.image || "/placeholder.svg"}
+            alt={product.name}
+            className={cn(
+              "object-cover transition-transform duration-700",
+              isHovered ? "scale-110" : "scale-100"
+            )}
+            style={{
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+              top: 0,
+              left: 0,
+            }}
+          />
+        </Link>
 
         {/* Quick Actions */}
         <div

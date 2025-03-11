@@ -23,7 +23,10 @@ import {
 import Spline from "@splinetool/react-spline";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import img1 from "../assets/home/img1.jpg";
+
+import img2 from "../assets/razer1.png";
+import img3 from "../assets/razer2.png";
+import img4 from "../assets/razer3.png";
 
 // Custom cursor component
 const CustomCursor = () => {
@@ -338,7 +341,7 @@ export default function HomePage() {
       name: "Razer BlackShark V2 Pro",
       description:
         "Wireless esports headset with THX Spatial Audio, TriForce Titanium 50mm Drivers, and HyperClear Supercardioid Mic for competitive gaming.",
-      sceneUrl: "https://prod.spline.design/sgQLSlV0PknXJ8ic/scene.splinecode",
+      sceneUrl: "https://prod.spline.design/od0NrETN7OYrWSlC/scene.splinecode",
       category: "Audio",
       features: [
         "THX Spatial Audio",
@@ -426,17 +429,17 @@ export default function HomePage() {
     {
       title: "Razer Announces New Esports Tournament Series",
       date: "June 15, 2023",
-      image: "/placeholder.svg?height=400&width=600",
+      image: img2,
     },
     {
       title: "Next-Gen Razer Blade Laptops Revealed",
-      date: "May 28, 2023",
-      image: "/placeholder.svg?height=400&width=600",
+      image: img4,
+      date: "June 17, 2024",
     },
     {
       title: "Razer Partners with Leading Game Developer",
       date: "April 10, 2023",
-      image: "/placeholder.svg?height=400&width=600",
+      image: img3,
     },
   ];
 

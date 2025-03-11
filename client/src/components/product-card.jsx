@@ -12,12 +12,14 @@ export default function ProductCard({ product }) {
   const [isHovered, setIsHovered] = useState(false);
 
   const discount = product.originalPrice
-    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
+    ? Math.round(
+        ((product.originalPrice - product.price) / product.originalPrice) * 100
+      )
     : 0;
 
   return (
     <motion.div
-      className="product-card group bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-green-500/50 transition-all duration-300"
+      className="product-card group bg-black-900 rounded-lg overflow-hidden border border-gray-800 hover:border-green-500/50 transition-all duration-300"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
@@ -25,20 +27,22 @@ export default function ProductCard({ product }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Product Image */}
-      <div className="relative aspect-[4/3] overflow-hidden">
+      <div className="relative aspect-[1] overflow-hidden cursor-pointer">
         <img
           src={product.image || "/placeholder.svg"}
           alt={product.name}
-          className={cn("object-cover transition-transform duration-700", isHovered ? "scale-110" : "scale-100")}
-          style={{ width: "100%", height: "100%", position: "absolute", top: 0, left: 0 }}
+          className={cn(
+            "object-cover transition-transform duration-700",
+            isHovered ? "scale-110" : "scale-100"
+          )}
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            top: 0,
+            left: 0,
+          }}
         />
-
-        {/* Badges */}
-        <div className="absolute top-2 left-2 flex flex-col gap-2">
-          {product.isNew && <Badge className="bg-green-500 hover:bg-green-600">New</Badge>}
-          {product.isBestSeller && <Badge className="bg-amber-500 hover:bg-amber-600">Best Seller</Badge>}
-          {discount > 0 && <Badge className="bg-red-500 hover:bg-red-600">-{discount}%</Badge>}
-        </div>
 
         {/* Quick Actions */}
         <div
@@ -48,10 +52,17 @@ export default function ProductCard({ product }) {
           )}
         >
           <div className="flex gap-2">
-            <Button size="sm" className="flex-1 bg-green-600 hover:bg-green-700">
+            <Button
+              size="sm"
+              className="flex-1 bg-green-600 hover:bg-green-700 cursor-pointer"
+            >
               <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
             </Button>
-            <Button size="sm" variant="outline" className="border-gray-600 hover:bg-gray-800">
+            <Button
+              size="sm"
+              variant="outline"
+              className="border-gray-600 hover:bg-gray-800"
+            >
               <Heart className="h-4 w-4" />
             </Button>
           </div>
@@ -62,7 +73,9 @@ export default function ProductCard({ product }) {
       <div className="p-4">
         <div className="text-xs text-gray-400 mb-1">{product.category}</div>
         <Link to="/products">
-          <h3 className="font-bold text-lg mb-1 hover:text-green-500 transition-colors">{product.name}</h3>
+          <h3 className="font-bold text-lg mb-1 hover:text-green-500 transition-colors">
+            {product.name}
+          </h3>
         </Link>
 
         {/* Rating */}
@@ -73,11 +86,15 @@ export default function ProductCard({ product }) {
                 key={i}
                 className={cn(
                   "h-4 w-4",
-                  i < Math.floor(product.rating) ? "text-yellow-400 fill-yellow-400" : "text-gray-600"
+                  i < Math.floor(product.rating)
+                    ? "text-yellow-400 fill-yellow-400"
+                    : "text-gray-600"
                 )}
               />
             ))}
-            <span className="ml-1 text-xs text-gray-400">{product.rating.toFixed(1)}</span>
+            <span className="ml-1 text-xs text-gray-400">
+              {product.rating.toFixed(1)}
+            </span>
           </div>
         </div>
 
@@ -85,7 +102,9 @@ export default function ProductCard({ product }) {
         <div className="flex items-center gap-2">
           <div className="font-bold text-lg">${product.price.toFixed(2)}</div>
           {product.originalPrice && (
-            <div className="text-sm text-gray-400 line-through">${product.originalPrice.toFixed(2)}</div>
+            <div className="text-sm text-gray-400 line-through">
+              ${product.originalPrice.toFixed(2)}
+            </div>
           )}
         </div>
       </div>

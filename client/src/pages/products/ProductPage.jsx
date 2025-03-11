@@ -15,7 +15,22 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
+import { Card, CardContent } from "@/components/ui/card";
+import Autoplay from "embla-carousel-autoplay";
+
 import { getProducts } from "../../lib/product";
+
+import img1 from "../../assets/carousel1.png";
+import img2 from "../../assets/carousel2.png";
+import img3 from "../../assets/carousel3.png";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState(getProducts());
@@ -64,20 +79,44 @@ export default function ProductsPage() {
       <main className="pt-24 pb-20">
         {/* Hero Banner */}
         <div className="relative h-[300px] md:h-[400px] overflow-hidden mb-12">
-          <img
-            src="/placeholder.svg?height=400&width=1200"
-            alt="Products Banner"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 flex items-center">
+          <div className="absolute inset-0">
+            <Carousel
+              plugins={[
+                Autoplay({
+                  delay: 2000,
+                }),
+              ]}
+            >
+              <CarouselContent>
+                <CarouselItem>
+                  <img
+                    src={img1}
+                    alt="Gaming Mouse"
+                    className="h-[300px] md:h-[400px] w-full object-cover"
+                  />
+                </CarouselItem>
+                <CarouselItem>
+                  <img
+                    src={img2}
+                    alt="Mechanical Keyboard"
+                    className="h-[300px] md:h-[400px] w-full object-cover"
+                  />
+                </CarouselItem>
+                <CarouselItem>
+                  <img
+                    src={img3}
+                    alt="Gaming Headset"
+                    className="h-[300px] md:h-[400px] w-full object-cover"
+                  />
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+
+          {/* Gradient Overlay & Text Content */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 flex items-end py-5">
             <div className="container mx-auto px-4">
               <h1 className="page-title text-4xl md:text-6xl font-bold mb-4 max-w-2xl">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-green-600">
@@ -95,21 +134,40 @@ export default function ProductsPage() {
         {/* Filters and Search */}
         <div className="container mx-auto px-4 mb-12">
           <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
-            <Tabs defaultValue="all" className="w-full md:w-auto" onValueChange={setCategory}>
-              <TabsList className="bg-gray-900 p-1">
-                <TabsTrigger value="all" className="data-[state=active]:bg-green-600">
+            <Tabs
+              defaultValue="all"
+              className="w-full md:w-auto"
+              onValueChange={setCategory}
+            >
+              <TabsList className="bg-black-900 p-1 ">
+                <TabsTrigger
+                  value="all"
+                  className="data-[state=active]:bg-green-600 cursor-pointer"
+                >
                   All
                 </TabsTrigger>
-                <TabsTrigger value="laptops" className="data-[state=active]:bg-green-600">
+                <TabsTrigger
+                  value="laptops"
+                  className="data-[state=active]:bg-green-600 cursor-pointer"
+                >
                   Laptops
                 </TabsTrigger>
-                <TabsTrigger value="keyboards" className="data-[state=active]:bg-green-600">
+                <TabsTrigger
+                  value="keyboards"
+                  className="data-[state=active]:bg-green-600 cursor-pointer"
+                >
                   Keyboards
                 </TabsTrigger>
-                <TabsTrigger value="mice" className="data-[state=active]:bg-green-600">
+                <TabsTrigger
+                  value="mice"
+                  className="data-[state=active]:bg-green-600 cursor-pointer"
+                >
                   Mice
                 </TabsTrigger>
-                <TabsTrigger value="audio" className="data-[state=active]:bg-green-600">
+                <TabsTrigger
+                  value="audio"
+                  className="data-[state=active]:bg-green-600 "
+                >
                   Audio
                 </TabsTrigger>
               </TabsList>
@@ -118,12 +176,12 @@ export default function ProductsPage() {
             <div className="flex gap-4 w-full md:w-auto">
               <Input
                 placeholder="Search products..."
-                className="bg-gray-900 border-gray-700 focus-visible:ring-green-500"
+                className="bg-black-900 border-gray-700 focus-visible:ring-green-500"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
               <Select defaultValue="featured">
-                <SelectTrigger className="w-[180px] bg-gray-900 border-gray-700">
+                <SelectTrigger className="w-[180px] bg-black-900 border-gray-700 cursor-pointer">
                   <SelectValue placeholder="Sort by" />
                 </SelectTrigger>
                 <SelectContent className="bg-gray-900 border-gray-700">
@@ -149,7 +207,8 @@ export default function ProductsPage() {
             <div className="text-center py-20">
               <h3 className="text-2xl font-bold mb-4">No products found</h3>
               <p className="text-gray-400 mb-8">
-                Try adjusting your search or filter to find what you're looking for.
+                Try adjusting your search or filter to find what you're looking
+                for.
               </p>
               <Button
                 variant="outline"

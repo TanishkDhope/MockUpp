@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 import { Search, ShoppingCart, User, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import logoimg from "../assets/razerlogo.svg";
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,16 +39,16 @@ export default function Navbar() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-black/90 backdrop-blur-md border-b border-green-500/20" : "bg-transparent"
+        isScrolled
+          ? "bg-black/90 backdrop-blur-md border-b border-green-500/20"
+          : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-green-600">
-              RAZER
-            </span>
+          <Link to="/" className="flex items-center space-x-2">
+            <img src={logoimg} alt="Razer Logo" className="h-8 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -67,13 +69,25 @@ export default function Navbar() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-gray-300 hover:text-white"
+            >
               <Search className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-gray-300 hover:text-white"
+            >
               <User className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-gray-300 hover:text-white"
+            >
               <ShoppingCart className="h-5 w-5" />
             </Button>
           </div>
@@ -85,7 +99,11 @@ export default function Navbar() {
             className="md:hidden text-gray-300 hover:text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </Button>
         </div>
       </div>
@@ -115,13 +133,25 @@ export default function Navbar() {
           </nav>
 
           <div className="mt-auto flex justify-between py-6">
-            <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-gray-300 hover:text-white"
+            >
               <Search className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-gray-300 hover:text-white"
+            >
               <User className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-gray-300 hover:text-white"
+            >
               <ShoppingCart className="h-5 w-5" />
             </Button>
           </div>

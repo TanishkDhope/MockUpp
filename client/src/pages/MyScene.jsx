@@ -68,7 +68,7 @@ function MyScene() {
     // Load GLB Model
     const loader = new GLTFLoader()
     loader.load(
-      "keyboard (1).glb",
+      "keyboard.glb",
       (gltf) => {
         modelRef.current = gltf.scene
 

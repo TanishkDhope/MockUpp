@@ -66,7 +66,7 @@ export default function HomePage() {
       sceneUrl: "https://prod.spline.design/EAX2xONSJXH7v2Mn/scene.splinecode",
       category: "Laptops",
     },
-    
+
     {
       id: 3,
       name: "Razer Huntsman V2",
@@ -99,10 +99,11 @@ export default function HomePage() {
                 FOR GAMERS. BY GAMERS.
               </h1>
               <p className="text-lg md:text-xl mb-8 text-gray-300">
-                Experience the ultimate gaming gear with cutting-edge technology and precision engineering.
+                Experience the ultimate gaming gear with cutting-edge technology
+                and precision engineering.
               </p>
               <Link to="/products">
-                <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 rounded-md text-lg">
+                <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 rounded-md text-lg cursor-pointer">
                   Shop Now <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -125,10 +126,14 @@ export default function HomePage() {
                 key={product.id}
                 ref={(el) => (featuredRefs.current[index] = el)}
                 className={`grid grid-cols-1 ${
-                  index % 2 === 0 ? "md:grid-cols-[1fr_1.2fr]" : "md:grid-cols-[1.2fr_1fr] md:flex-row-reverse"
+                  index % 2 === 0
+                    ? "md:grid-cols-[1fr_1.2fr]"
+                    : "md:grid-cols-[1.2fr_1fr] md:flex-row-reverse"
                 } gap-8 md:gap-16 items-center h-96`}
               >
-                <div className={`${index % 2 === 0 ? "md:order-1" : "md:order-2"}`}>
+                <div
+                  className={`${index % 2 === 0 ? "md:order-1" : "md:order-2"}`}
+                >
                   <div className="relative overflow-hidden rounded-lg group h-80">
                     {/* Directly using the Spline component with increased height */}
                     <Spline
@@ -146,13 +151,25 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-                <div className={`${index % 2 === 0 ? "md:order-2" : "md:order-1"} space-y-4`}>
-                  <div className="text-sm font-medium text-green-500">{product.category}</div>
-                  <h3 className="text-2xl md:text-3xl font-bold">{product.name}</h3>
+                <div
+                  className={`${
+                    index % 2 === 0 ? "md:order-2" : "md:order-1"
+                  } space-y-4`}
+                >
+                  <div className="text-sm font-medium text-green-500">
+                    {product.category}
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold">
+                    {product.name}
+                  </h3>
                   <p className="text-gray-400">{product.description}</p>
                   <Link to="/products">
-                    <Button variant="outline" className="border-green-500 text-green-500 hover:bg-green-500/10">
-                      Explore {product.category} <ArrowRight className="ml-2 h-4 w-4" />
+                    <Button
+                      variant="outline"
+                      className="border-green-500 text-green-500 hover:bg-green-500/10"
+                    >
+                      Explore {product.category}{" "}
+                      <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
                 </div>
@@ -165,12 +182,15 @@ export default function HomePage() {
         <section className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-green-900/20 to-black/40 z-0"></div>
           <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 text-center">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">JOIN THE CULT OF RAZER</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              JOIN THE CULT OF RAZER
+            </h2>
             <p className="text-lg md:text-xl mb-8 text-gray-300 max-w-3xl mx-auto">
-              Get exclusive access to deals, early product announcements, and Razer ID rewards.
+              Get exclusive access to deals, early product announcements, and
+              Razer ID rewards.
             </p>
             <Link to="/products">
-              <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 rounded-md text-lg">
+              <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 rounded-md text-lg cursor-pointer">
                 Browse All Products
               </Button>
             </Link>

@@ -28,9 +28,10 @@ import Autoplay from "embla-carousel-autoplay";
 
 import { getProducts } from "../../lib/product";
 
-import img1 from "../../assets/carousel1.png";
-import img2 from "../../assets/carousel2.png";
 import img3 from "../../assets/carousel3.png";
+import img4 from "../../assets/carousel4.png";
+import img5 from "../../assets/carousel6.png";
+import img7 from "../../assets/carousel7.png";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState(getProducts());
@@ -59,6 +60,8 @@ export default function ProductsPage() {
         ease: "power2.out",
       }
     );
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   // Filter products based on category and search query
@@ -90,14 +93,14 @@ export default function ProductsPage() {
               <CarouselContent>
                 <CarouselItem>
                   <img
-                    src={img1}
+                    src={img4}
                     alt="Gaming Mouse"
                     className="h-[300px] md:h-[400px] w-full object-cover"
                   />
                 </CarouselItem>
                 <CarouselItem>
                   <img
-                    src={img2}
+                    src={img5}
                     alt="Mechanical Keyboard"
                     className="h-[300px] md:h-[400px] w-full object-cover"
                   />

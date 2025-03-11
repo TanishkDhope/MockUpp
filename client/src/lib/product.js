@@ -2,7 +2,7 @@
 
 import img1 from "../assets/lap1.png";
 import img2 from "../assets/lap2.png";
-import img3 from "../assets/lap3.png";
+import img3 from "../assets/lap4.png";
 import img4 from "../assets/head1.png";
 import img5 from "../assets/head2.png";
 import img6 from "../assets/head3.png";

@@ -5,6 +5,7 @@ import SignUp from './pages/SignUp'
 import HomePage from './pages/HomePage'
 import ProductsPage from './pages/products/ProductPage'
 
+
 function App() {
 
   return (

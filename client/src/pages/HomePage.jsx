@@ -565,7 +565,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="order-1 lg:order-2 h-[500px] relative">
-              <div className="absolute inset-0 bg-gradient-to-b from-green-500/0 via-green-500/5 to-green-500/20 rounded-3xl"></div>
+              
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeProductIndex}
@@ -575,7 +575,7 @@ export default function HomePage() {
                   transition={{ duration: 0.5 }}
                   className="h-full w-full"
                 >
-                  <Spline scene={featuredProducts[activeProductIndex].sceneUrl} className="w-full h-full" />
+                  <Spline scene={featuredProducts[activeProductIndex].sceneUrl} className="w-full h-full z-50" />
                 </motion.div>
               </AnimatePresence>
             </div>
